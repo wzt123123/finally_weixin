@@ -18,7 +18,7 @@
 	<!-- 这里应该要循环从服务器返回的数据 -->
 <%-- 	<%
 	Page<Book> page = request.getAttribute("page");
-	List<Book> content = page.getContent();
+	List<Book> content = page.getContent(); 
 	for( Book book : content ){
 	%>
 		<div>
