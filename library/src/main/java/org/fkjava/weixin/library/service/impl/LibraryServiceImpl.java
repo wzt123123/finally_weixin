@@ -23,9 +23,7 @@ public class LibraryServiceImpl implements LibraryService {
 
 	@Override
 	public Page<Book> search(String keyword, int pageNumber) {
-		// Pageable表示分页条件，PageRequest用于创建分页条件。
-		// 第一个参数表示页面，从0开始！
-		// 第二个参数表示每页查询多少条数据出来。
+		
 		Pageable pageable = PageRequest.of(pageNumber, 3);
 
 		Page<Book> page;
@@ -77,19 +75,6 @@ public class LibraryServiceImpl implements LibraryService {
 				// 如果第一条记录存在，则从集合里面删除
 				.ifPresent(item -> list.getItems().remove(item));
 
-		// 命令式编程，已经过时
-//		// 1.找到需要被删除的对象
-//		DebitItem item = null;
-//		for (DebitItem i : list.getItems()) {
-//			if (i.getBook().getId().equals(id)) {
-//				item = i;
-//				break;
-//			}
-//		}
-//		// 2.如果找到了可以被删除的对象
-//		if (item != null) {
-//			// 3.从集合里面删除
-//			list.getItems().remove(item);
-//		}
+	
 	}
 }
