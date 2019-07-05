@@ -8,7 +8,7 @@ public class OutMessage {
 	private String toUser;
 	@JsonProperty("msgtype")
 	private String messageType;
-
+ 
 	public String getToUser() {
 		return toUser;
 	}
