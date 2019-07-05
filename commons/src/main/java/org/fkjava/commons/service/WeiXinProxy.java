@@ -47,10 +47,7 @@ public class WeiXinProxy {
 				+ "&lang=zh_CN";
 
 		// 1.创建HttpClient对象
-		// 在Java 11才内置了HttpClient，如果是早期JDK需要使用第三方的jar文件
-//		HttpClient client = HttpClient.newBuilder()//
-//				.version(Version.HTTP_1_1)// 设置HTTP 1.1的协议版本
-//				.build();
+		
 
 		// 2.创建HttpRequest对象
 		HttpRequest request = HttpRequest.newBuilder(URI.create(url))//
@@ -58,8 +55,7 @@ public class WeiXinProxy {
 				.build();
 
 		// 3.调用远程接口，返回JSON
-		// BodyHandlers里面包含了许多内置的请求体、响应体的处理程序，ofString意思是使用String方式返回
-		// Charset.forName("UTF-8")指定字符编码
+		
 		try {
 			HttpResponse<String> response = client.send(request, BodyHandlers.ofString(Charset.forName("UTF-8")));
 
@@ -96,30 +92,6 @@ public class WeiXinProxy {
 	}
 
 	private void send(OutMessage msg) {
-//		ObjectMapper mapper = new ObjectMapper();
-//		try {
-//			String json = mapper.writeValueAsString(msg);
-//			LOG.trace("发送信息信息的内容：\n{}", json);
-//
-//			String accessToken = this.tokenManager.getToken();
-//			String url = "https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=" + accessToken;
-//			HttpRequest request = HttpRequest.newBuilder(URI.create(url))//
-//					// 把消息的内容，转换为JSON字符串，然后发送给微信
-//					.POST(BodyPublishers.ofString(json, Charset.forName("UTF-8")))// 以POST方式发送请求
-//					.build();
-////			HttpResponse<String> response = client.send(request, BodyHandlers.ofString(Charset.forName("UTF-8")));
-////			LOG.trace("发送信息信息的返回：\n{}", response.body());
-//
-//			// 异步发送请求
-//			CompletableFuture<HttpResponse<String>> future = client.sendAsync(request,
-//					BodyHandlers.ofString(Charset.forName("UTF-8")));
-//			// 异步处理结果
-//			future.thenAcceptAsync(response -> {
-//				LOG.trace("发送信息信息的返回：\n{}", response.body());
-//			});
-//		} catch (IOException e) {
-//			throw new RuntimeException("发送消息出现问题：" + e.getLocalizedMessage(), e);
-//		}
 
 		ObjectMapper mapper = new ObjectMapper();
 		try {
